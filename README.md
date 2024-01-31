@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Initialisation of the app
 
-## Getting Started
+pnpx create-next-app latest .
 
-First, run the development server:
+This is src based app using TypeScript and Tailwind CSS. App router is used.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+#### Preparation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Remove all the content from the page.tsc
+- Remove all the definitions from the globals.css. Leave the following
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+* Create assets folder
 
-## Learn More
+#### Change font
 
-To learn more about Next.js, take a look at the following resources:
+Go to layout page. The default font family is inter. Import another font, change constant as for example:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+const space_mono = Space_Mono({ subsets: ['latin'], weight: ['400', '700'] })
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+In the body change:
 
-## Deploy on Vercel
+<body className={space_mono.className}>{children}</body>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Assets
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- pnpm install react-icons
+
+#### Some Tailwind Conventions
+
+- Screen height minimum screen:
+  min-h-screen
+- Setting custom background color:
+  bg-[hsl(185,41%,84%)]
+- Putting item in the center of the screen/element
+  flex items-center justify-center
+- Putting items in the center
+
+- If you want to make your custom properties or utility clases, you can extend the tailwind. confing file:
+
+  theme: {
+  extend: {
+  colors: {
+  'background-main': 'hsl(183,100%,15%)',
+  },
+  },
+  },
+
+- To put one element under another, we use flex-col property
+- If you have the input field with the place holder, you can move the text with the text-left/text-center/text-right classes.
