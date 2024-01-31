@@ -28,26 +28,3 @@ In the body change:
 #### Assets
 
 - pnpm install react-icons
-
-#### Some Tailwind Conventions
-
-- Screen height minimum screen:
-  min-h-screen
-- Setting custom background color:
-  bg-[hsl(185,41%,84%)]
-- Putting item in the center of the screen/element
-  flex items-center justify-center
-- Putting items in the center
-
-- If you want to make your custom properties or utility clases, you can extend the tailwind. confing file:
-
-  theme: {
-  extend: {
-  colors: {
-  'background-main': 'hsl(183,100%,15%)',
-  },
-  },
-  },
-
-- To put one element under another, we use flex-col property
-- If you have the input field with the place holder, you can move the text with the text-left/text-center/text-right classes.
